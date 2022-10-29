@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
             @Override
             public void onStateChange(Resource<TempHumidityResult> resource) {
-                updateState(resource);
+                runOnUiThread(() -> updateState(resource));
             }
         });
         getLifecycle().addObserver(viewModel);
